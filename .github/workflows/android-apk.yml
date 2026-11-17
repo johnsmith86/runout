@@ -24,7 +24,13 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - uses: android-actions/setup-android@v3
+      - name: Install Android platform
+        run: |
+          SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+          SM="$(find "$SDK/cmdline-tools" -type f -name sdkmanager | head -1)"
+          test -n "$SM"
+          yes | "$SM" --licenses >/dev/null || true
+          "$SM" "platforms;android-36"
 
       - name: Install dependencies
         run: npm ci
