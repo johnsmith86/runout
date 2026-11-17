@@ -1,0 +1,19 @@
+{
+  "name": "runout-android",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Runout Android app. Opens the live Runout fishing companion.",
+  "scripts": {
+    "assets": "capacitor-assets generate --android --iconBackgroundColor '#07141c' --splashBackgroundColor '#07141c'",
+    "sync": "cap sync android",
+    "apk": "cd android && ./gradlew assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/assets": "^4.0.0",
+    "@capacitor/cli": "^8.6.2",
+    "@capacitor/core": "^8.6.2",
+    "typescript": "^7.0.2"
+  },
+  "type": "module"
+}
